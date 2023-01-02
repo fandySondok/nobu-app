@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "conf.h": "c",
+    "cstdlib": "c",
+    "config-tools.h": "c",
+    "stdio.h": "c",
+    "time.h": "c",
+    "*.tcc": "c",
+    "system_error": "c",
+    "typeinfo": "c",
+    "string.h": "c",
+    "nb-psql.h": "c",
+    "stdlib.h": "c"
+  }
+}

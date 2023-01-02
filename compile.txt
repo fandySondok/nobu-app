@@ -1,0 +1,1 @@
+gcc conf.c mqttsub.c shiki-config-tools.c nb-psql.c -o mqttsub -lmosquitto -lsqlite3 -lpq -lpthread
