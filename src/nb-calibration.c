@@ -7,27 +7,37 @@
 #include "nb-psql.h"
 
 calib_param dev_sensor;
-extern struct core_topic_info mq_sub;
+// extern struct core_topic_info mq_sub;
 
 int8_t nb_calib_save_data(char *msg_tmp, char *topic_tmp)
 {
   double msg_aft_calib_db = 0;
   char msg_aft_calib[10];
   memset(msg_aft_calib, 0x00, sizeof(msg_aft_calib));
-  if (memcmp(mq_sub.topic1, topic_tmp, strlen(topic_tmp)) == 0) // temp
+  if (memcmp("channel1", topic_tmp, strlen(topic_tmp)) == 0) // temp
   {
-    nb_psql_get_calib_value(topic_tmp, &dev_sensor.temp);
-    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.temp.aval + dev_sensor.temp.bval;
+    nb_psql_get_calib_value(topic_tmp, &dev_sensor.channel1);
+    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.channel1.aval + dev_sensor.channel1.bval;
   }
-  else if (memcmp(mq_sub.topic2, topic_tmp, strlen(topic_tmp)) == 0) // hum
+  else if (memcmp("channel2", topic_tmp, strlen(topic_tmp)) == 0) // hum
   {
-    nb_psql_get_calib_value(topic_tmp, &dev_sensor.hum);
-    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.hum.aval + dev_sensor.hum.bval;
+    nb_psql_get_calib_value(topic_tmp, &dev_sensor.channel2);
+    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.channel2.aval + dev_sensor.channel2.bval;
   }
-  else if (memcmp(mq_sub.topic3, topic_tmp, strlen(topic_tmp)) == 0) // co2
+  else if (memcmp("channel3", topic_tmp, strlen(topic_tmp)) == 0) // co2
   {
-    nb_psql_get_calib_value(topic_tmp, &dev_sensor.co2);
-    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.co2.aval + dev_sensor.co2.bval;
+    nb_psql_get_calib_value(topic_tmp, &dev_sensor.channel3);
+    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.channel3.aval + dev_sensor.channel3.bval;
+  }
+  else if (memcmp("channel4", topic_tmp, strlen(topic_tmp)) == 0)
+  {
+    nb_psql_get_calib_value(topic_tmp, &dev_sensor.channel4);
+    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.channel4.aval + dev_sensor.channel4.bval;
+  }
+  else if (memcmp("channel5", topic_tmp, strlen(topic_tmp)) == 0)
+  {
+    nb_psql_get_calib_value(topic_tmp, &dev_sensor.channel5);
+    msg_aft_calib_db = (atof(msg_tmp)) * dev_sensor.channel5.aval + dev_sensor.channel5.bval;
   }
   snprintf(msg_aft_calib, sizeof(msg_aft_calib), "%.2f", msg_aft_calib_db);
   nb_psql_send_logfile(topic_tmp, msg_aft_calib);

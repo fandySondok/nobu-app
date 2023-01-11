@@ -12,9 +12,11 @@ typedef struct
 
 typedef struct
 {
-  calib_value temp;
-  calib_value hum;
-  calib_value co2;
+  calib_value channel1;
+  calib_value channel2;
+  calib_value channel3;
+  calib_value channel4;
+  calib_value channel5;
 } calib_param;
 
 int8_t nb_calib_save_data(char *msg_tmp, char *topic_tmp);

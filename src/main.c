@@ -10,7 +10,7 @@
 #define LOG_DEVICE "data.db"
 #define MAX_SQL_BUFF 2024
 
-struct mosquitto *mosq;
+// struct mosquitto *mosq;
 // int s_log_insert_log_device(char *topic_tmp, char *message_tmp);
 
 int main()
@@ -18,14 +18,15 @@ int main()
   debug(__func__, "INFO", "----------------- [ Starting Program ] -----------------");
   conf_core_init();
   nb_psql_init();
-  nb_mosquitto_init(mosq);
+
+  // nb_mosquitto_init(mosq);
 
   while (1)
   {
     usleep(1000);
   }
 
-  nb_mosquitto_stop(mosq);
+  // nb_mosquitto_stop(mosq);
   return 0;
 }
 

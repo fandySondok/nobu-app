@@ -51,6 +51,14 @@ void nb_psql_close(PGconn **conn)
     *conn = NULL;
   }
 }
+/**
+ * TODO
+ * @brief
+ *
+ * @param top_tmp
+ * @param msg_tmp
+ * @return int8_t
+ */
 
 int8_t nb_psql_send_logfile(const char *top_tmp, const char *msg_tmp)
 {

@@ -10,6 +10,7 @@
     "typeinfo": "c",
     "string.h": "c",
     "nb-psql.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "mosquitto.h": "c"
   }
 }
