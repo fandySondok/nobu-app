@@ -1,0 +1,1 @@
+{"channel1":"humidity","channel2":"temperature"}

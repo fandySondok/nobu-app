@@ -1,0 +1,1 @@
+{"channel":"humidity","channel_state":true}

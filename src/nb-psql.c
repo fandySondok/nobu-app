@@ -6,6 +6,8 @@
 #include "nb-psql.h"
 #include "conf.h"
 
+// create table calib (aval numeric(6,2), bval numeric(6,2), topic varchar(25), instime timestamp without time zone default current_timestamp(0)); create table
+
 struct nb_psql_parameters nb_psql;
 
 pthread_mutex_t lock_conn = PTHREAD_MUTEX_INITIALIZER;
