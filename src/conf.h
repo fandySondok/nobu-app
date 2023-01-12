@@ -48,6 +48,11 @@ struct core_conf_info
   char username[50];
   char passwd[50];
   int total_topic;
+  int8_t port_channel1;
+  int8_t port_channel2;
+  int8_t port_channel3;
+  int8_t port_channel4;
+  int8_t port_channel5;
 };
 
 struct core_topic_info

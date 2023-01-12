@@ -11,6 +11,15 @@
     "string.h": "c",
     "nb-psql.h": "c",
     "stdlib.h": "c",
-    "mosquitto.h": "c"
+    "mosquitto.h": "c",
+    "nb-serial.h": "c",
+    "types.h": "c",
+    "errno.h": "c",
+    "bit": "c",
+    "array": "c",
+    "deque": "c",
+    "string": "c",
+    "unordered_map": "c",
+    "vector": "c"
   }
 }

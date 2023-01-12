@@ -80,6 +80,12 @@ int conf_core_init()
   printf("passwd      = %s\n", mq_conf.passwd);
   printf("total topic = %i\n", mq_conf.total_topic);
 
+  printf("P channel 1 = %i\n", mq_conf.port_channel1);
+  printf("P channel 2 = %i\n", mq_conf.port_channel2);
+  printf("P channel 3 = %i\n", mq_conf.port_channel3);
+  printf("P channel 4 = %i\n", mq_conf.port_channel4);
+  printf("P channel 5 = %i\n", mq_conf.port_channel5);
+
   if (mq_conf.total_topic > 0)
   {
     for (int i = 1; i <= mq_conf.total_topic; i++)
@@ -129,6 +135,51 @@ int conf_get_core_config()
     free(buff);
     return -1;
   }
+
+  if (sconf_get_config(CORE_CONFIG, "port_channel1", buff) != 0)
+  {
+    printf("[WARNING] port_channel1 is missing\n");
+    free(buff);
+    return -1;
+  }
+  mq_conf.port_channel1 = atoi(buff);
+  memset(buff, 0, sizeof(20 * sizeof(char)));
+
+  if (sconf_get_config(CORE_CONFIG, "port_channel2", buff) != 0)
+  {
+    printf("[WARNING] port_channel2 is missing\n");
+    free(buff);
+    return -1;
+  }
+  mq_conf.port_channel2 = atoi(buff);
+  memset(buff, 0, sizeof(20 * sizeof(char)));
+
+  if (sconf_get_config(CORE_CONFIG, "port_channel3", buff) != 0)
+  {
+    printf("[WARNING] port_channel3 is missing\n");
+    free(buff);
+    return -1;
+  }
+  mq_conf.port_channel3 = atoi(buff);
+  memset(buff, 0, sizeof(20 * sizeof(char)));
+
+  if (sconf_get_config(CORE_CONFIG, "port_channel4", buff) != 0)
+  {
+    printf("[WARNING] port_channel4 is missing\n");
+    free(buff);
+    return -1;
+  }
+  mq_conf.port_channel4 = atoi(buff);
+  memset(buff, 0, sizeof(20 * sizeof(char)));
+
+  if (sconf_get_config(CORE_CONFIG, "port_channel5", buff) != 0)
+  {
+    printf("[WARNING] port_channel5 is missing\n");
+    free(buff);
+    return -1;
+  }
+  mq_conf.port_channel5 = atoi(buff);
+  memset(buff, 0, sizeof(20 * sizeof(char)));
 
   mq_conf.total_topic = sconf_check_line_conf(TOPIC_CONFIG);
   if (mq_conf.total_topic > 0)
