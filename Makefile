@@ -11,13 +11,15 @@ INCLUDE = $(LIB_PKG_CONFIG) \
           -lpthread \
 					-lmosquitto
 
-SRC_TOOLS = lib/config-tools.c
+SRC_TOOLS = lib/config-tools.c  \
+						lib/uart-tools.c
 
 SOURCE   = src/main.c \
            src/conf.c \
            src/nb-mosquitto.c \
 					 src/nb-psql.c \
 					 src/nb-calibration.c \
+					 src/nb-serial.c \
 					 $(SRC_TOOLS)
 
 
