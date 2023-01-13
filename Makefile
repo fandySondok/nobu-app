@@ -20,6 +20,7 @@ SOURCE   = src/main.c \
 					 src/nb-psql.c \
 					 src/nb-calibration.c \
 					 src/nb-serial.c \
+					 src/nb-sensor.c \
 					 $(SRC_TOOLS)
 
 

@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <time.h>
 
 #include "conf.h"
 #include "nb-psql.h"
 #include "nb-mosquitto.h"
+#include "nb-sensor.h"
 
 #define LOG_DEVICE "data.db"
 #define MAX_SQL_BUFF 2024
@@ -13,17 +15,39 @@
 // struct mosquitto *mosq;
 // int s_log_insert_log_device(char *topic_tmp, char *message_tmp);
 
+typedef struct
+{
+  char temperature[10];
+  char humidity[10];
+} sensor_s;
+
 int main()
 {
   debug(__func__, "INFO", "----------------- [ Starting Program ] -----------------");
   conf_core_init();
   nb_psql_init();
 
-  // nb_mosquitto_init(mosq);
+  sensor_s main_sensor;
+  time_t prev_tm, pres_tm = 0;
+  time(&pres_tm);
+  prev_tm = pres_tm;
 
+  // nb_mosquitto_init(mosq);
   while (1)
   {
-    usleep(1000);
+    time(&pres_tm);
+    if (pres_tm - prev_tm >= 10)
+    {
+      prev_tm = pres_tm;
+      memset(&main_sensor, 0x00, sizeof(main_sensor));
+      int ret = nb_sensor_get_temp_hum_md02(main_sensor.temperature, main_sensor.humidity);
+      if (!ret)
+      {
+        nb_calib_save_data(main_sensor.temperature, "channel1");
+        nb_calib_save_data(main_sensor.humidity, "channel2");
+      }
+    }
+    usleep(10000);
   }
 
   // nb_mosquitto_stop(mosq);

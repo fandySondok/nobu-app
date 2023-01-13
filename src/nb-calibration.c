@@ -1,16 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <pthread.h>
 
 #include "nb-calibration.h"
 #include "conf.h"
 #include "nb-psql.h"
 
+pthread_mutex_t lock_calib_save = PTHREAD_MUTEX_INITIALIZER;
+
 calib_param dev_sensor;
-// extern struct core_topic_info mq_sub;
 
 int8_t nb_calib_save_data(char *msg_tmp, char *topic_tmp)
 {
+  pthread_mutex_lock(&lock_calib_save);
   double msg_aft_calib_db = 0;
   char msg_aft_calib[10];
   memset(msg_aft_calib, 0x00, sizeof(msg_aft_calib));
@@ -41,5 +44,6 @@ int8_t nb_calib_save_data(char *msg_tmp, char *topic_tmp)
   }
   snprintf(msg_aft_calib, sizeof(msg_aft_calib), "%.2f", msg_aft_calib_db);
   nb_psql_send_logfile(topic_tmp, msg_aft_calib);
+  pthread_mutex_unlock(&lock_calib_save);
   return 0;
 }
