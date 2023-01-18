@@ -25,7 +25,7 @@ int main()
 {
   debug(__func__, "INFO", "----------------- [ Starting Program ] -----------------");
   conf_core_init();
-  nb_psql_init();
+  // nb_psql_init();
 
   sensor_s main_sensor;
   time_t prev_tm, pres_tm = 0;
@@ -36,7 +36,7 @@ int main()
   while (1)
   {
     time(&pres_tm);
-    if (pres_tm - prev_tm >= 10)
+    if (pres_tm - prev_tm >= 5)
     {
       prev_tm = pres_tm;
       memset(&main_sensor, 0x00, sizeof(main_sensor));

@@ -9,6 +9,7 @@
 #include <string.h>
 #include <termios.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 #include "nb-serial.h"
 #include "uart-tools.h"
@@ -24,6 +25,109 @@ typedef struct
   int state;
   int err;
 } nb_serial_timeout_s;
+
+static void init_crc16_tab(void);
+
+static bool crc_tab16_init = false;
+static uint16_t crc_tab16[256];
+
+/*
+ * uint16_t crc_16( const unsigned char *input_str, size_t num_bytes );
+ *
+ * The function crc_16() calculates the 16 bits CRC16 in one pass for a byte
+ * string of which the beginning has been passed to the function. The number of
+ * bytes to check is also a parameter. The number of the bytes in the string is
+ * limited by the constant SIZE_MAX.
+ */
+
+uint16_t crc_16(const unsigned char *input_str, size_t num_bytes)
+{
+  uint16_t crc;
+  const unsigned char *ptr;
+  size_t a;
+  if (!crc_tab16_init)
+    init_crc16_tab();
+  crc = CRC_START_16;
+  ptr = input_str;
+  if (ptr != NULL)
+    for (a = 0; a < num_bytes; a++)
+    {
+      crc = (crc >> 8) ^ crc_tab16[(crc ^ (uint16_t)*ptr++) & 0x00FF];
+    }
+  return crc;
+} /* crc_16 */
+
+/*
+ * uint16_t crc_modbus( const unsigned char *input_str, size_t num_bytes );
+ *
+ * The function crc_modbus() calculates the 16 bits Modbus CRC in one pass for
+ * a byte string of which the beginning has been passed to the function. The
+ * number of bytes to check is also a parameter.
+ */
+
+uint16_t crc_modbus(const unsigned char *input_str, size_t num_bytes)
+{
+  uint16_t crc;
+  const unsigned char *ptr;
+  size_t a;
+  if (!crc_tab16_init)
+    init_crc16_tab();
+  crc = CRC_START_MODBUS;
+  ptr = input_str;
+  if (ptr != NULL)
+    for (a = 0; a < num_bytes; a++)
+    {
+      crc = (crc >> 8) ^ crc_tab16[(crc ^ (uint16_t)*ptr++) & 0x00FF];
+    }
+  return crc;
+} /* crc_modbus */
+
+/*
+ * uint16_t update_crc_16( uint16_t crc, unsigned char c );
+ *
+ * The function update_crc_16() calculates a new CRC-16 value based on the
+ * previous value of the CRC and the next byte of data to be checked.
+ */
+
+uint16_t update_crc_16(uint16_t crc, unsigned char c)
+{
+  if (!crc_tab16_init)
+    init_crc16_tab();
+  return (crc >> 8) ^ crc_tab16[(crc ^ (uint16_t)c) & 0x00FF];
+} /* update_crc_16 */
+
+/*
+ * static void init_crc16_tab( void );
+ *
+ * For optimal performance uses the CRC16 routine a lookup table with values
+ * that can be used directly in the XOR arithmetic in the algorithm. This
+ * lookup table is calculated by the init_crc16_tab() routine, the first time
+ * the CRC function is called.
+ */
+
+static void init_crc16_tab(void)
+{
+  uint16_t i;
+  uint16_t j;
+  uint16_t crc;
+  uint16_t c;
+
+  for (i = 0; i < 256; i++)
+  {
+    crc = 0;
+    c = i;
+    for (j = 0; j < 8; j++)
+    {
+      if ((crc ^ c) & 0x0001)
+        crc = (crc >> 1) ^ CRC_POLY_16;
+      else
+        crc = crc >> 1;
+      c = c >> 1;
+    }
+    crc_tab16[i] = crc;
+  }
+  crc_tab16_init = true;
+} /* init_crc16_tab */
 
 int nb_serial_open(nb_serial_config_s *t_config)
 {
@@ -191,15 +295,15 @@ int nb_serial_write(nb_serial_config_s *t_config, unsigned char *t_message, int 
 
   int msg_len = 0;
   msg_len = nb_serial_composed_response(&msg, msg_len, t_message, t_size_message);
-  unsigned char csum_feed[msg_len];
-  memset(csum_feed, 0x00, sizeof(csum_feed));
-  memcpy(csum_feed, msg, msg_len);
-  unsigned char csum_bit = nb_serial_calcute_checksum(csum_feed, msg_len);
-  msg_len = nb_serial_composed_response(&msg, msg_len, &csum_bit, 1);
+  uint16_t csum_bit_2 = crc_modbus(msg, msg_len);
+  msg_len = nb_serial_composed_response(&msg, msg_len, (unsigned char *)&csum_bit_2, 2);
+  // msg_len = nb_serial_composed_response(&msg, msg_len, STOP_BYTES, 2);
+  debug_hex("SEND DATA", msg, msg_len - 1);
   tcflush(t_config->fdesc, TCIOFLUSH);
   usleep(100);
   int ret = suart_write_data(t_config->fdesc, msg, msg_len);
+  printf("result %i\n", ret);
   free(msg);
   msg = NULL;
-  return ret;
+  return 0;
 }

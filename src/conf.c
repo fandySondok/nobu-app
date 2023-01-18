@@ -5,6 +5,9 @@
 #include <sys/time.h>
 #include <pthread.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <errno.h>
 
 #include "conf.h"
 #include "config-tools.h"
@@ -61,6 +64,66 @@ int debug(const char *function_name, char *debug_type, char *debug_msg, ...)
   tmp_debug_msg = NULL;
   pthread_mutex_unlock(&lockDebug);
   return 0;
+}
+
+int8_t enco_tools_terminal_size(unsigned short *__col__, unsigned short *__lines__)
+{
+  struct winsize w;
+  if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == 0)
+  {
+    *__col__ = w.ws_col;
+    *__lines__ = w.ws_row;
+    return 0;
+  }
+  return errno;
+}
+
+void debug_hex(const char *kalimat, unsigned char *array, int ukuran)
+{
+  unsigned short col, row = 0;
+  if (!enco_tools_terminal_size(&col, &row))
+  {
+    int8_t max_print_dash = 17;
+    if ((max_print_dash * 2) + strlen(kalimat) + 3 > col)
+    {
+      max_print_dash = 1;
+    }
+
+    int8_t len_msg = strlen(kalimat) + max_print_dash * 2 + 3;
+    char msg[len_msg];
+    memset(msg, 0, len_msg * sizeof(char));
+    for (int i = 0; i < max_print_dash; i++)
+    {
+      sprintf(msg + strlen(msg), "-");
+    }
+    sprintf(msg + strlen(msg), " %s ", kalimat);
+    for (int i = 0; i < max_print_dash; i++)
+    {
+      sprintf(msg + strlen(msg), "-");
+    }
+    printf("%s\n", msg);
+
+    int i = 0;
+    int8_t separator = 0;
+    int8_t max_separator = 0;
+    (max_separator > col) ? (max_separator = 8) : (max_separator = 16);
+    printf("%s", KCYN);
+    do
+    {
+      printf("%02X ", array[i]);
+      i++;
+      separator++;
+      if (separator == max_separator && i < ukuran)
+      {
+        printf("\n");
+        separator = 0;
+      }
+    } while (i <= ukuran);
+    printf("%s\n", KNRM);
+    for (i = 0; i < (len_msg - 1); i++)
+      printf("-");
+    printf("\n");
+  }
 }
 
 int conf_core_init()

@@ -70,6 +70,7 @@ struct core_topic_info
 };
 
 int debug(const char *function_name, char *debug_type, char *debug_msg, ...);
+void debug_hex(const char *kalimat, unsigned char *array, int ukuran);
 int conf_core_init();
 int conf_get_core_config();
 int conf_get_topic_config(int total_topic_tmp);

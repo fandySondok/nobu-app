@@ -9,7 +9,7 @@
 
 char reg_get_temp_md02[6] = {0x01, 0x04, 0x00, 0x01, 0x00, 0x01};
 char reg_get_hum_md02[6] = {0x01, 0x04, 0x00, 0x02, 0x00, 0x01};
-char reg_get_temp_hum_md02[6] = {0x01, 0x04, 0x00, 0x01, 0x00, 0x02};
+static unsigned char reg_get_temp_hum_md02[6] = {0x01, 0x04, 0x00, 0x01, 0x00, 0x02};
 
 static long convert_hex_to_long(unsigned char *t_hex_source, int t_hex_size);
 extern struct core_conf_info mq_conf;
@@ -38,7 +38,7 @@ tryop:;
     goto tryop;
   }
 
-  int ret = nb_serial_write(&conf_serial, (unsigned char *)reg_get_temp_hum_md02, strlen(reg_get_temp_hum_md02));
+  int ret = nb_serial_write(&conf_serial, reg_get_temp_hum_md02, 6);
 
   if (ret > 0)
     debug(__func__, "INFO", "success sent %d byte data", ret);
