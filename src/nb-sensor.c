@@ -5,7 +5,7 @@
 
 #include "nb-sensor.h"
 #include "nb-serial.h"
-#include "conf.h"
+#include "nb-conf.h"
 
 char reg_get_temp_md02[6] = {0x01, 0x04, 0x00, 0x01, 0x00, 0x01};
 char reg_get_hum_md02[6] = {0x01, 0x04, 0x00, 0x02, 0x00, 0x01};

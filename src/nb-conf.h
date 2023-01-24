@@ -1,5 +1,5 @@
-#ifndef CONF_H
-#define CONF_H
+#ifndef NB_CONF_H
+#define NB_CONF_H
 
 // https://stackoverflow.com/a/1961222
 #define RESET "\033[0m"

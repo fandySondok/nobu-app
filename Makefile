@@ -9,18 +9,20 @@ LIB_PKG_CONFIG = `pkg-config --cflags --libs gtk+-3.0 glib-2.0`
 INCLUDE = $(LIB_PKG_CONFIG) \
           -lpq \
           -lpthread \
-					-lmosquitto
+					-lmosquitto \
+					-ljson-c
 
 SRC_TOOLS = lib/config-tools.c  \
 						lib/uart-tools.c
 
 SOURCE   = src/main.c \
-           src/conf.c \
+           src/nb-conf.c \
            src/nb-mosquitto.c \
 					 src/nb-psql.c \
 					 src/nb-calibration.c \
 					 src/nb-serial.c \
 					 src/nb-sensor.c \
+					 src/nb-json.c \
 					 $(SRC_TOOLS)
 
 

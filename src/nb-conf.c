@@ -9,11 +9,12 @@
 #include <sys/ioctl.h>
 #include <errno.h>
 
-#include "conf.h"
+#include "nb-conf.h"
 #include "config-tools.h"
 
 #define CORE_CONFIG "conf/core.conf"
 #define TOPIC_CONFIG "conf/topic.conf"
+#define CHANNEL_OPT "conf/channel_opt.conf"
 
 #define MAX_CORE_BUFF 64
 struct core_conf_info mq_conf;
@@ -276,4 +277,16 @@ int conf_get_topic_config(int total_topic_tmp)
   }
   free(buff);
   return 0;
+}
+
+void conf_read_file(char *t_file_name, char *t_file_contain)
+{
+  FILE *buffer = NULL;
+  uint8_t try_times = 5;
+
+  do
+  {
+    buffer = fopen(t_file_name, "r");
+    try_times--;
+  } while (buffer == NULL && try_times > 0);
 }

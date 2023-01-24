@@ -4,7 +4,7 @@
 #include <pthread.h>
 
 #include "nb-calibration.h"
-#include "conf.h"
+#include "nb-conf.h"
 #include "nb-psql.h"
 
 pthread_mutex_t lock_calib_save = PTHREAD_MUTEX_INITIALIZER;

@@ -4,16 +4,13 @@
 #include <unistd.h>
 #include <time.h>
 
-#include "conf.h"
+#include "nb-conf.h"
 #include "nb-psql.h"
 #include "nb-mosquitto.h"
 #include "nb-sensor.h"
 
 #define LOG_DEVICE "data.db"
 #define MAX_SQL_BUFF 2024
-
-// struct mosquitto *mosq;
-// int s_log_insert_log_device(char *topic_tmp, char *message_tmp);
 
 typedef struct
 {
@@ -25,14 +22,13 @@ int main()
 {
   debug(__func__, "INFO", "----------------- [ Starting Program ] -----------------");
   conf_core_init();
-  // nb_psql_init();
+  // nb_psql_init(); // commented for testing on pc purpose
 
   sensor_s main_sensor;
   time_t prev_tm, pres_tm = 0;
   time(&pres_tm);
   prev_tm = pres_tm;
 
-  // nb_mosquitto_init(mosq);
   while (1)
   {
     time(&pres_tm);
@@ -50,7 +46,6 @@ int main()
     usleep(10000);
   }
 
-  // nb_mosquitto_stop(mosq);
   return 0;
 }
 

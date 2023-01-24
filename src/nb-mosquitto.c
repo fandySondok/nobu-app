@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include "nb-mosquitto.h"
-#include "conf.h"
+#include "nb-conf.h"
 #include "nb-psql.h"
 
 #define CLIENT_ID "nb-device"

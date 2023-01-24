@@ -13,7 +13,7 @@
 
 #include "nb-serial.h"
 #include "uart-tools.h"
-#include "conf.h"
+#include "nb-conf.h"
 
 static unsigned char STOP_BYTES[2] = {0x0D, 0x0A};
 
