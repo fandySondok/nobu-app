@@ -279,7 +279,7 @@ int conf_get_topic_config(int total_topic_tmp)
   return 0;
 }
 
-void conf_read_file(char *t_file_name, char *t_file_contain)
+int8_t nb_conf_read_file(char *t_file_name, char *t_file_contain)
 {
   FILE *buffer = NULL;
   uint8_t try_times = 5;
@@ -289,4 +289,25 @@ void conf_read_file(char *t_file_name, char *t_file_contain)
     buffer = fopen(t_file_name, "r");
     try_times--;
   } while (buffer == NULL && try_times > 0);
+
+  if (buffer == NULL)
+  {
+    debug(__func__, "ERROR", "failed to open file %s", t_file_name);
+    return -1;
+  }
+
+  char buffer_fcon[512];
+  char s_character = 0;
+  uint16_t len_schar = 0;
+  memset(buffer_fcon, 0x00, sizeof(buffer_fcon));
+
+  while ((s_character = fgetc(buffer)) != EOF)
+  {
+    if (s_character > 127 || s_character < 9 || len_schar == (sizeof(buffer) - 1))
+      break;
+    buffer_fcon[len_schar] = s_character;
+    len_schar++;
+  }
+  fclose(buffer);
+  return 0;
 }

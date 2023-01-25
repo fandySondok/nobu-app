@@ -74,5 +74,6 @@ void debug_hex(const char *kalimat, unsigned char *array, int ukuran);
 int conf_core_init();
 int conf_get_core_config();
 int conf_get_topic_config(int total_topic_tmp);
+int8_t nb_conf_read_file(char *t_file_name, char *t_file_contain);
 
 #endif
