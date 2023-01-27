@@ -1,1 +1,1 @@
-{"channel":"humidity","channel_state":true}
+{"channel":"humidity","channel_state":true,"channel_inter":1,"channel_sat":"%"}

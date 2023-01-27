@@ -1,1 +1,1 @@
-{"channel":"windspeed","channel_state":false}
+{"channel":"humidity","channel_state":false,"channel_inter":1,"channel_sat":"%"}

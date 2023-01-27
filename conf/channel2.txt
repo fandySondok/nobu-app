@@ -1,1 +1,1 @@
-{"channel":"temperature","channel_state":true}
+{"channel":"temperature","channel_state":true,"channel_inter":1,"channel_sat":"c"}

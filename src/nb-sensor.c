@@ -13,11 +13,11 @@ char reg_get_temp_md02[6] = {0x01, 0x04, 0x00, 0x01, 0x00, 0x01};
 char reg_get_hum_md02[6] = {0x01, 0x04, 0x00, 0x02, 0x00, 0x01};
 static unsigned char reg_get_temp_hum_md02[6] = {0x01, 0x04, 0x00, 0x01, 0x00, 0x02};
 
-nb_sensor_setup_param channel1;
-nb_sensor_setup_param channel2;
-nb_sensor_setup_param channel3;
-nb_sensor_setup_param channel4;
-nb_sensor_setup_param channel5;
+static nb_sensor_setup_param channel1;
+static nb_sensor_setup_param channel2;
+static nb_sensor_setup_param channel3;
+static nb_sensor_setup_param channel4;
+static nb_sensor_setup_param channel5;
 
 pthread_mutex_t lock_channel_param = PTHREAD_MUTEX_INITIALIZER;
 
@@ -130,6 +130,7 @@ void *nb_sensor_get_setup_thread(void *not_used)
 
   while (1)
   {
+
     memset(buff_conf_channel1, 0x00, sizeof(buff_conf_channel1));
     memset(buff_conf_channel2, 0x00, sizeof(buff_conf_channel1));
     memset(buff_conf_channel3, 0x00, sizeof(buff_conf_channel1));
@@ -142,7 +143,8 @@ void *nb_sensor_get_setup_thread(void *not_used)
     if (!ret || obj_chan != NULL)
     {
       pthread_mutex_lock(&lock_channel_param);
-      nb_parsing_json_boolean(obj_chan, "channel_state", channel1.state);
+      memset(&channel1, 0x00, sizeof(channel1));
+      nb_parsing_json_boolean(obj_chan, "channel_state", &channel1.state);
       nb_parsing_json_string(obj_chan, "channel", channel1.name);
       nb_parsing_json_string(obj_chan, "channel_sat", channel1.satuan);
       channel1.interval = nb_parsing_json_int(obj_chan, "channel_inter");
@@ -156,7 +158,8 @@ void *nb_sensor_get_setup_thread(void *not_used)
     if (!ret || obj_chan != NULL)
     {
       pthread_mutex_lock(&lock_channel_param);
-      nb_parsing_json_boolean(obj_chan, "channel_state", channel2.state);
+      memset(&channel2, 0x00, sizeof(channel2));
+      nb_parsing_json_boolean(obj_chan, "channel_state", &channel2.state);
       nb_parsing_json_string(obj_chan, "channel", channel2.name);
       nb_parsing_json_string(obj_chan, "channel_sat", channel2.satuan);
       channel2.interval = nb_parsing_json_int(obj_chan, "channel_inter");
@@ -170,7 +173,8 @@ void *nb_sensor_get_setup_thread(void *not_used)
     if (!ret || obj_chan != NULL)
     {
       pthread_mutex_lock(&lock_channel_param);
-      nb_parsing_json_boolean(obj_chan, "channel_state", channel3.state);
+      memset(&channel3, 0x00, sizeof(channel3));
+      nb_parsing_json_boolean(obj_chan, "channel_state", &channel3.state);
       nb_parsing_json_string(obj_chan, "channel", channel3.name);
       nb_parsing_json_string(obj_chan, "channel_sat", channel3.satuan);
       channel3.interval = nb_parsing_json_int(obj_chan, "channel_inter");
@@ -184,7 +188,8 @@ void *nb_sensor_get_setup_thread(void *not_used)
     if (!ret || obj_chan != NULL)
     {
       pthread_mutex_lock(&lock_channel_param);
-      nb_parsing_json_boolean(obj_chan, "channel_state", channel4.state);
+      memset(&channel4, 0x00, sizeof(channel4));
+      nb_parsing_json_boolean(obj_chan, "channel_state", &channel4.state);
       nb_parsing_json_string(obj_chan, "channel", channel4.name);
       nb_parsing_json_string(obj_chan, "channel_sat", channel4.satuan);
       channel4.interval = nb_parsing_json_int(obj_chan, "channel_inter");
@@ -198,7 +203,8 @@ void *nb_sensor_get_setup_thread(void *not_used)
     if (!ret || obj_chan != NULL)
     {
       pthread_mutex_lock(&lock_channel_param);
-      nb_parsing_json_boolean(obj_chan, "channel_state", channel5.state);
+      memset(&channel5, 0x00, sizeof(channel5));
+      nb_parsing_json_boolean(obj_chan, "channel_state", &channel5.state);
       nb_parsing_json_string(obj_chan, "channel", channel5.name);
       nb_parsing_json_string(obj_chan, "channel_sat", channel5.satuan);
       channel5.interval = nb_parsing_json_int(obj_chan, "channel_inter");

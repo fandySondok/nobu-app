@@ -303,11 +303,12 @@ int8_t nb_conf_read_file(char *t_file_name, char *t_file_contain)
 
   while ((s_character = fgetc(buffer)) != EOF)
   {
-    if (s_character > 127 || s_character < 9 || len_schar == (sizeof(buffer) - 1))
+    if (s_character > 127 || s_character < 9 || len_schar == (sizeof(buffer_fcon) - 1))
       break;
     buffer_fcon[len_schar] = s_character;
     len_schar++;
   }
+  strcpy(t_file_contain, buffer_fcon);
   fclose(buffer);
   return 0;
 }
