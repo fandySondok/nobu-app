@@ -16,44 +16,84 @@
     "env": []
   },
   {
-    "id": "572469609fff1fbd",
+    "id": "5929b0421302347b",
     "type": "junction",
     "z": "f8aa2faa21c8a9a9",
-    "x": 800,
-    "y": 800,
-    "wires": [["c24a9fefddb7544e"]]
+    "x": 1300,
+    "y": 460,
+    "wires": [["f937469ed016ccbe"]]
   },
   {
-    "id": "1811b3e81a1b26d0",
+    "id": "bb74a374fd4f2bff",
     "type": "junction",
     "z": "f8aa2faa21c8a9a9",
-    "x": 680,
-    "y": 1040,
-    "wires": [["0ba53e9eb857ad88"]]
+    "x": 1300,
+    "y": 620,
+    "wires": [["f937469ed016ccbe"]]
   },
   {
-    "id": "1064a4006489356c",
+    "id": "ccc02e54e14c396e",
     "type": "junction",
     "z": "f8aa2faa21c8a9a9",
-    "x": 600,
-    "y": 1280,
-    "wires": [["9dde28a70b9eaf70"]]
+    "x": 1300,
+    "y": 920,
+    "wires": [["675e04b46a2852d9"]]
   },
   {
-    "id": "e6b95e8fe1e2b059",
+    "id": "a31c3f1441d6aa1d",
     "type": "junction",
     "z": "f8aa2faa21c8a9a9",
-    "x": 500,
-    "y": 1560,
-    "wires": [["6a9ad735df18e569"]]
+    "x": 1300,
+    "y": 760,
+    "wires": [["675e04b46a2852d9"]]
   },
   {
-    "id": "10925289208b723c",
+    "id": "84b7833f4f584478",
     "type": "junction",
     "z": "f8aa2faa21c8a9a9",
-    "x": 580,
-    "y": 1900,
-    "wires": [["680e30ba7d938e41"]]
+    "x": 1300,
+    "y": 1060,
+    "wires": [["b03bc9314643451e"]]
+  },
+  {
+    "id": "5ecd04529cb8a9c7",
+    "type": "junction",
+    "z": "f8aa2faa21c8a9a9",
+    "x": 1300,
+    "y": 1220,
+    "wires": [["b03bc9314643451e"]]
+  },
+  {
+    "id": "26591e951d888692",
+    "type": "junction",
+    "z": "f8aa2faa21c8a9a9",
+    "x": 1300,
+    "y": 1360,
+    "wires": [["f8b232585370eb1e"]]
+  },
+  {
+    "id": "79bb82b60376d4f6",
+    "type": "junction",
+    "z": "f8aa2faa21c8a9a9",
+    "x": 1300,
+    "y": 1520,
+    "wires": [["f8b232585370eb1e"]]
+  },
+  {
+    "id": "bebf676faab14e47",
+    "type": "junction",
+    "z": "f8aa2faa21c8a9a9",
+    "x": 1300,
+    "y": 1660,
+    "wires": [["bcd06ccecec30bba"]]
+  },
+  {
+    "id": "256edac9d512c862",
+    "type": "junction",
+    "z": "f8aa2faa21c8a9a9",
+    "x": 1300,
+    "y": 1820,
+    "wires": [["bcd06ccecec30bba"]]
   },
   {
     "id": "c70c04a37b589081",
@@ -246,7 +286,7 @@
     "id": "0e2b369a92b156f7",
     "type": "ui_tab",
     "name": "Setup",
-    "icon": "dashboard",
+    "icon": "mode_edit",
     "order": 3,
     "disabled": false,
     "hidden": false
@@ -329,6 +369,16 @@
     "order": 5,
     "disp": false,
     "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "e460d696bc22f4e3",
+    "type": "ui_group",
+    "name": "Interval (second)",
+    "tab": "0e2b369a92b156f7",
+    "order": 4,
+    "disp": true,
+    "width": "3",
     "collapse": false
   },
   {
@@ -420,8 +470,8 @@
     "topic": "topic",
     "topicType": "msg",
     "splitLayout": "",
-    "x": 200,
-    "y": 800,
+    "x": 140,
+    "y": 780,
     "wires": [["f52fa43f3cb5e31c", "e1d2383f62873d1b"]]
   },
   {
@@ -481,7 +531,7 @@
     "reduceInitType": "num",
     "reduceFixup": "",
     "x": 410,
-    "y": 660,
+    "y": 680,
     "wires": [["476817dc72e47a22"]]
   },
   {
@@ -496,7 +546,7 @@
     "finalize": "",
     "libs": [],
     "x": 580,
-    "y": 640,
+    "y": 680,
     "wires": [["60373104a928f778"]]
   },
   {
@@ -788,7 +838,7 @@
     "id": "93b2eae297085e3d",
     "type": "file in",
     "z": "7a76c9ed376f878b",
-    "name": "conf",
+    "name": "read channel_opt.txt",
     "filename": "/home/nobutech/mqtt-sub/conf/channel_opt.txt",
     "filenameType": "str",
     "format": "utf8",
@@ -796,7 +846,7 @@
     "sendError": false,
     "encoding": "none",
     "allProps": false,
-    "x": 210,
+    "x": 420,
     "y": 560,
     "wires": [["ac11a0fc33f79a6e"]]
   },
@@ -814,7 +864,7 @@
     "id": "7536422b118f50b5",
     "type": "change",
     "z": "7a76c9ed376f878b",
-    "name": "",
+    "name": "convert payload to options",
     "rules": [
       {
         "t": "set",
@@ -829,22 +879,22 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 560,
-    "y": 560,
+    "x": 450,
+    "y": 620,
     "wires": [["f52fa43f3cb5e31c"]]
   },
   {
     "id": "ac11a0fc33f79a6e",
     "type": "function",
     "z": "7a76c9ed376f878b",
-    "name": "function 28",
+    "name": "save data to context flow",
     "func": "const arraytmp = [];\nconst json = msg.payload;\nconst obj = JSON.parse(json);\narraytmp[0] = obj.channel1;\narraytmp[1] = obj.channel2;\narraytmp[2] = obj.channel3;\narraytmp[3] = obj.channel4;\narraytmp[4] = obj.channel5;\n\nflow.set(\"f_label_chart_1\", obj.channel1);\nflow.set(\"f_label_chart_2\", obj.channel2);\nflow.set(\"f_label_chart_3\", obj.channel3);\nflow.set(\"f_label_chart_4\", obj.channel4);\nflow.set(\"f_label_chart_5\", obj.channel5);\n\n\nmsg.payload = arraytmp;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 370,
+    "x": 690,
     "y": 560,
     "wires": [["7536422b118f50b5"]]
   },
@@ -2603,8 +2653,8 @@
     "topic": "topic",
     "topicType": "msg",
     "x": 1060,
-    "y": 740,
-    "wires": [["f937469ed016ccbe"]]
+    "y": 460,
+    "wires": [["5929b0421302347b"]]
   },
   {
     "id": "6326827db6dcc35d",
@@ -2631,9 +2681,9 @@
     "officon": "",
     "offcolor": "",
     "animate": false,
-    "x": 890,
-    "y": 580,
-    "wires": [["4c9c51b37c7acd3b", "f937469ed016ccbe"]]
+    "x": 830,
+    "y": 620,
+    "wires": [["4c9c51b37c7acd3b", "bb74a374fd4f2bff"]]
   },
   {
     "id": "4c9c51b37c7acd3b",
@@ -2659,9 +2709,9 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 860,
-    "y": 740,
-    "wires": [["b9774c94499e6a93", "c24a9fefddb7544e"]]
+    "x": 840,
+    "y": 560,
+    "wires": [["b9774c94499e6a93", "c24a9fefddb7544e", "a3d54c631226cd9f"]]
   },
   {
     "id": "06c7cc11ec68ed89",
@@ -2682,7 +2732,7 @@
     "payloadType": "str",
     "topic": "payload",
     "topicType": "msg",
-    "x": 2000,
+    "x": 2200,
     "y": 1100,
     "wires": [["d48ded4fcaadc6b8"]]
   },
@@ -2691,13 +2741,13 @@
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
     "name": "function 8",
-    "func": "var msgtmp = {};\nvar msgstate = {};\nmsgstate.channel1_state = flow.get(\"channel1_state\");\nif (msgstate.channel1_state){\n    msgtmp.channel1 = flow.get(\"channel1\");\n    if(msgtmp.channel1.length <= 0){\n        msg.payload = -1;\n        msg.highlight = RED;\n        return msg;\n    }\n}\n\nmsgstate.channel2_state = flow.get(\"channel2_state\");\nif (msgstate.channel2_state) {\n    msgtmp.channel2 = flow.get(\"channel2\");\n    if (msgtmp.channel2.length <= 0) {\n        msg.payload = -1;\n        return msg;\n    }\n}\n\nmsgstate.channel3_state = flow.get(\"channel3_state\");\nif (msgstate.channel3_state) {\n    msgtmp.channel3 = flow.get(\"channel3\");\n    if (msgtmp.channel3.length <= 0) {\n        msg.payload = -1;\n        return msg;\n    }\n}\n\nmsgstate.channel4_state = flow.get(\"channel4_state\");\nif (msgstate.channel4_state) {\n    msgtmp.channel4 = flow.get(\"channel4\");\n    if (msgtmp.channel4.length <= 0) {\n        msg.payload = -1;\n        return msg;\n    }\n\n}\n\nmsgstate.channel5_state = flow.get(\"channel5_state\");\nif (msgstate.channel5_state) {\n    msgtmp.channel5 = flow.get(\"channel5\");\n    if (msgtmp.channel5.length <= 0) {\n        msg.payload = -1;\n        return msg;\n    }\n\n}\n\n\nmsg.payload = msgtmp;\nreturn msg;",
+    "func": "var msgtmp = {};\nvar msgstate = {};\nmsgstate.channel1_state = flow.get(\"channel1_state\");\nif (msgstate.channel1_state){\n    msgstate.inter1 = flow.get(\"f_channel1_inter\");\n    msgtmp.channel1 = flow.get(\"channel1\");\n    if(msgtmp.channel1.length <= 0 ){\n        msg.payload = -1;\n        msg.highlight = RED;\n        return msg;\n    }\n    else if (msgstate.inter1 == null || msgstate.inter1 == 0){\n        msg.payload = -2;\n        msg.highlight = RED;\n        return msg;\n    }\n}\n\nmsgstate.channel2_state = flow.get(\"channel2_state\");\nif (msgstate.channel2_state) {\n    msgstate.inter2 = flow.get(\"f_channel2_inter\");\n    msgtmp.channel2 = flow.get(\"channel2\");\n    if (msgtmp.channel2.length <= 0) {\n        msg.payload = -1;\n        msg.highlight = RED;\n        return msg;\n    }\n    else if (msgstate.inter2 == null || msgstate.inter2 == 0) {\n        msg.payload = -2;\n        msg.highlight = RED;\n        return msg;\n    }\n}\n\nmsgstate.channel3_state = flow.get(\"channel3_state\");\nif (msgstate.channel3_state) {\n    msgstate.inter3 = flow.get(\"f_channel3_inter\");\n    msgtmp.channel3 = flow.get(\"channel3\");\n    if (msgtmp.channel3.length <= 0) {\n        msg.payload = -1;\n        msg.highlight = RED;\n        return msg;\n    }\n    else if (msgstate.inter3 == null || msgstate.inter3 == 0) {\n        msg.payload = -2;\n        msg.highlight = RED;\n        return msg;\n    }\n}\n\nmsgstate.channel4_state = flow.get(\"channel4_state\");\nif (msgstate.channel4_state) {\n    msgstate.inter4 = flow.get(\"f_channel4_inter\");\n    msgtmp.channel4 = flow.get(\"channel4\");\n    if (msgtmp.channel4.length <= 0) {\n        msg.payload = -1;\n        msg.highlight = RED;\n        return msg;\n    }\n    else if (msgstate.inter4 == null || msgstate.inter4 == 0) {\n        msg.payload = -2;\n        msg.highlight = RED;\n        return msg;\n    }\n}\n\nmsgstate.channel5_state = flow.get(\"channel5_state\");\nif (msgstate.channel5_state) {\n    msgstate.inter5 = flow.get(\"f_channel5_inter\");\n    msgtmp.channel5 = flow.get(\"channel5\");\n    if (msgtmp.channel5.length <= 0) {\n        msg.payload = -1;\n        msg.highlight = RED;\n        return msg;\n    }\n    else if (msgstate.inter5 == null || msgstate.inter5 == 0) {\n        msg.payload = -2;\n        msg.highlight = RED;\n        return msg;\n    }\n\n}\n\n\nmsg.payload = msgtmp;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 2160,
+    "x": 2360,
     "y": 1100,
     "wires": [["ea9562b9b704fd06"]]
   },
@@ -2705,15 +2755,15 @@
     "id": "f937469ed016ccbe",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 9",
-    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel1_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse{\n    global.set(\"g_channel1\", msg.payload);\n    flow.set(\"channel1\", String(msg.payload));\n}\n \n\nmsgtmp.channel = flow.get(\"channel1\");\nmsgtmp.channel_state = flow.get(\"channel1_state\");\nmsgtmp.channel_sat = global.get(\"g_channel1_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
+    "name": "get all context chan1",
+    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel1_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse{\n    global.set(\"g_channel1\", msg.payload);\n    flow.set(\"channel1\", String(msg.payload));\n}\n \n\nmsgtmp.channel = flow.get(\"channel1\");\nmsgtmp.channel_state = flow.get(\"channel1_state\");\nmsgtmp.channel_inter = flow.get(\"f_channel1_inter\");\nmsgtmp.channel_sat = global.get(\"g_channel1_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1260,
-    "y": 680,
+    "x": 1480,
+    "y": 500,
     "wires": [["76c1206d4ed3ca14", "aa18ce3127014647"]]
   },
   {
@@ -2728,14 +2778,14 @@
     "overwriteFile": "true",
     "encoding": "none",
     "x": 1460,
-    "y": 680,
+    "y": 400,
     "wires": [[]]
   },
   {
     "id": "e14468e11fd226fc",
     "type": "file in",
     "z": "f8aa2faa21c8a9a9",
-    "name": "conf",
+    "name": "read channel1.txt",
     "filename": "/home/nobutech/mqtt-sub/conf/channel1.txt",
     "filenameType": "str",
     "format": "utf8",
@@ -2743,9 +2793,16 @@
     "sendError": false,
     "encoding": "none",
     "allProps": false,
-    "x": 410,
-    "y": 540,
-    "wires": [["9a6fdb5c8ab77191", "8373542527b957ad", "e177d817f76a99d0"]]
+    "x": 310,
+    "y": 500,
+    "wires": [
+      [
+        "9a6fdb5c8ab77191",
+        "8373542527b957ad",
+        "e177d817f76a99d0",
+        "21c2082a7cc8dbef"
+      ]
+    ]
   },
   {
     "id": "4ee9ccbdba2ed720",
@@ -2769,7 +2826,7 @@
     "payload": "",
     "payloadType": "date",
     "x": 70,
-    "y": 1060,
+    "y": 1100,
     "wires": [
       [
         "e14468e11fd226fc",
@@ -2784,30 +2841,30 @@
     "id": "9a6fdb5c8ab77191",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 14",
+    "name": "parse and save glob channel",
     "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel;\n\nflow.set(\"channel1\", msg.payload);\nglobal.set(\"g_channel1\", msg.payload);\n\n// expected output: true\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 570,
-    "y": 500,
+    "x": 580,
+    "y": 460,
     "wires": [["b9774c94499e6a93"]]
   },
   {
     "id": "8373542527b957ad",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 15",
+    "name": "parse and save flow state",
     "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel_state;\n\nflow.set(\"channel1_state\", msg.payload);\n\n// expected output: true\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 550,
-    "y": 580,
+    "x": 570,
+    "y": 600,
     "wires": [["4c9c51b37c7acd3b", "6326827db6dcc35d"]]
   },
   {
@@ -2826,9 +2883,9 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 1020,
-    "y": 1000,
-    "wires": [["675e04b46a2852d9"]]
+    "x": 1060,
+    "y": 760,
+    "wires": [["a31c3f1441d6aa1d"]]
   },
   {
     "id": "f2d282f6440298fa",
@@ -2855,9 +2912,9 @@
     "officon": "",
     "offcolor": "",
     "animate": false,
-    "x": 650,
-    "y": 940,
-    "wires": [["126ff0bd28eb4391", "675e04b46a2852d9"]]
+    "x": 830,
+    "y": 920,
+    "wires": [["126ff0bd28eb4391", "ccc02e54e14c396e"]]
   },
   {
     "id": "126ff0bd28eb4391",
@@ -2883,23 +2940,23 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 820,
-    "y": 1000,
-    "wires": [["453639af0beab196", "0ba53e9eb857ad88"]]
+    "x": 840,
+    "y": 860,
+    "wires": [["453639af0beab196", "0ba53e9eb857ad88", "33cea2892dea7e75"]]
   },
   {
     "id": "675e04b46a2852d9",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 16",
-    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel2_state\", msg.payload);\n}\nelse if(msg.payload==-1){\n\n}\nelse {\n    global.set(\"g_channel2\", msg.payload);\n    flow.set(\"channel2\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel2\");\nmsgtmp.channel_state = flow.get(\"channel2_state\");\nmsgtmp.channel_sat = global.get(\"g_channel2_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
+    "name": "get all context chan2",
+    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel2_state\", msg.payload);\n}\nelse if(msg.payload==-1){\n\n}\nelse {\n    global.set(\"g_channel2\", msg.payload);\n    flow.set(\"channel2\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel2\");\nmsgtmp.channel_state = flow.get(\"channel2_state\");\nmsgtmp.channel_inter = flow.get(\"f_channel2_inter\");\nmsgtmp.channel_sat = global.get(\"g_channel2_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1220,
-    "y": 940,
+    "x": 1480,
+    "y": 800,
     "wires": [["572a532f5fa46858", "aa18ce3127014647"]]
   },
   {
@@ -2913,15 +2970,15 @@
     "createDir": true,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 1420,
-    "y": 940,
+    "x": 1460,
+    "y": 700,
     "wires": [[]]
   },
   {
     "id": "779725709e06ccbf",
     "type": "file in",
     "z": "f8aa2faa21c8a9a9",
-    "name": "conf",
+    "name": "read channel2.txt",
     "filename": "/home/nobutech/mqtt-sub/conf/channel2.txt",
     "filenameType": "str",
     "format": "utf8",
@@ -2929,9 +2986,16 @@
     "sendError": false,
     "encoding": "none",
     "allProps": false,
-    "x": 370,
+    "x": 310,
     "y": 800,
-    "wires": [["f4e705f793bfab0f", "a6f03925d9d38698", "45e7f560ca9e1ca2"]]
+    "wires": [
+      [
+        "f4e705f793bfab0f",
+        "a6f03925d9d38698",
+        "45e7f560ca9e1ca2",
+        "1f6d2f1455ba2fa9"
+      ]
+    ]
   },
   {
     "id": "f4e705f793bfab0f",
@@ -2960,7 +3024,7 @@
     "finalize": "",
     "libs": [],
     "x": 530,
-    "y": 840,
+    "y": 900,
     "wires": [["126ff0bd28eb4391", "f2d282f6440298fa"]]
   },
   {
@@ -2979,9 +3043,9 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 980,
-    "y": 1260,
-    "wires": [["b03bc9314643451e"]]
+    "x": 1060,
+    "y": 1060,
+    "wires": [["84b7833f4f584478"]]
   },
   {
     "id": "1b5c694af22289d4",
@@ -3008,9 +3072,9 @@
     "officon": "",
     "offcolor": "",
     "animate": false,
-    "x": 610,
-    "y": 1200,
-    "wires": [["9a68f33a7b981a15", "b03bc9314643451e"]]
+    "x": 830,
+    "y": 1220,
+    "wires": [["9a68f33a7b981a15", "5ecd04529cb8a9c7"]]
   },
   {
     "id": "9a68f33a7b981a15",
@@ -3036,23 +3100,23 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 780,
-    "y": 1260,
-    "wires": [["61da420f0b9ce9e0", "9dde28a70b9eaf70"]]
+    "x": 840,
+    "y": 1160,
+    "wires": [["61da420f0b9ce9e0", "9dde28a70b9eaf70", "00eb24da4b25721e"]]
   },
   {
     "id": "b03bc9314643451e",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 19",
-    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel3_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse {\n    global.set(\"g_channel3\", msg.payload);\n    flow.set(\"channel3\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel3\");\nmsgtmp.channel_state = flow.get(\"channel3_state\");\nmsgtmp.channel_sat = global.get(\"g_channel3_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
+    "name": "get all context chan3",
+    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel3_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse {\n    global.set(\"g_channel3\", msg.payload);\n    flow.set(\"channel3\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel3\");\nmsgtmp.channel_state = flow.get(\"channel3_state\");\nmsgtmp.channel_inter = flow.get(\"f_channel3_inter\");\nmsgtmp.channel_sat = global.get(\"g_channel3_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1180,
-    "y": 1200,
+    "x": 1480,
+    "y": 1100,
     "wires": [["dde386c4be36f76a", "aa18ce3127014647"]]
   },
   {
@@ -3066,15 +3130,15 @@
     "createDir": true,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 1380,
-    "y": 1200,
+    "x": 1460,
+    "y": 1000,
     "wires": [[]]
   },
   {
     "id": "293b3788aed037e5",
     "type": "file in",
     "z": "f8aa2faa21c8a9a9",
-    "name": "conf",
+    "name": "read channel3.txt",
     "filename": "/home/nobutech/mqtt-sub/conf/channel3.txt",
     "filenameType": "str",
     "format": "utf8",
@@ -3082,9 +3146,16 @@
     "sendError": false,
     "encoding": "none",
     "allProps": false,
-    "x": 330,
-    "y": 1060,
-    "wires": [["648c48edc4c38cc9", "626d041d65bb6550", "f4170e1f99c19b3c"]]
+    "x": 310,
+    "y": 1100,
+    "wires": [
+      [
+        "648c48edc4c38cc9",
+        "626d041d65bb6550",
+        "f4170e1f99c19b3c",
+        "c0e8c0157dcadcee"
+      ]
+    ]
   },
   {
     "id": "648c48edc4c38cc9",
@@ -3097,8 +3168,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 490,
-    "y": 1020,
+    "x": 530,
+    "y": 1060,
     "wires": [["61da420f0b9ce9e0"]]
   },
   {
@@ -3112,8 +3183,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 490,
-    "y": 1100,
+    "x": 530,
+    "y": 1200,
     "wires": [["9a68f33a7b981a15", "1b5c694af22289d4"]]
   },
   {
@@ -3132,9 +3203,9 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 960,
-    "y": 1560,
-    "wires": [["f8b232585370eb1e"]]
+    "x": 1060,
+    "y": 1360,
+    "wires": [["26591e951d888692"]]
   },
   {
     "id": "6e62d8a0ff4eec4e",
@@ -3161,9 +3232,9 @@
     "officon": "",
     "offcolor": "",
     "animate": false,
-    "x": 590,
-    "y": 1500,
-    "wires": [["148a5ad98163f28e", "f8b232585370eb1e"]]
+    "x": 830,
+    "y": 1520,
+    "wires": [["148a5ad98163f28e", "79bb82b60376d4f6"]]
   },
   {
     "id": "148a5ad98163f28e",
@@ -3189,23 +3260,23 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 760,
-    "y": 1560,
-    "wires": [["8a93b692e96e6ffd", "6a9ad735df18e569"]]
+    "x": 840,
+    "y": 1460,
+    "wires": [["8a93b692e96e6ffd", "6a9ad735df18e569", "d5cbab08fbd10568"]]
   },
   {
     "id": "f8b232585370eb1e",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 22",
-    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel4_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse {\n    global.set(\"g_channel4\", msg.payload);\n    flow.set(\"channel4\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel4\");\nmsgtmp.channel_state = flow.get(\"channel4_state\");\nmsgtmp.channel_sat = global.get(\"g_channel4_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
+    "name": "get all context chan4",
+    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel4_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse {\n    global.set(\"g_channel4\", msg.payload);\n    flow.set(\"channel4\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel4\");\nmsgtmp.channel_state = flow.get(\"channel4_state\");\nmsgtmp.channel_inter = flow.get(\"f_channel4_inter\");\nmsgtmp.channel_sat = global.get(\"g_channel4_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1160,
-    "y": 1500,
+    "x": 1480,
+    "y": 1400,
     "wires": [["19a5a44354745c31", "aa18ce3127014647"]]
   },
   {
@@ -3219,15 +3290,15 @@
     "createDir": true,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 1360,
-    "y": 1500,
+    "x": 1460,
+    "y": 1300,
     "wires": [[]]
   },
   {
     "id": "f8662ef596aea12f",
     "type": "file in",
     "z": "f8aa2faa21c8a9a9",
-    "name": "conf",
+    "name": "read channel4.txt",
     "filename": "/home/nobutech/mqtt-sub/conf/channel4.txt",
     "filenameType": "str",
     "format": "utf8",
@@ -3236,8 +3307,15 @@
     "encoding": "none",
     "allProps": false,
     "x": 310,
-    "y": 1360,
-    "wires": [["d13c3992bd5fa083", "c18aac44e57fce1a", "d4ba7a142573cb5e"]]
+    "y": 1400,
+    "wires": [
+      [
+        "d13c3992bd5fa083",
+        "c18aac44e57fce1a",
+        "d4ba7a142573cb5e",
+        "44350b0b52d976ef"
+      ]
+    ]
   },
   {
     "id": "d13c3992bd5fa083",
@@ -3250,8 +3328,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 470,
-    "y": 1320,
+    "x": 530,
+    "y": 1360,
     "wires": [["8a93b692e96e6ffd"]]
   },
   {
@@ -3265,8 +3343,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 470,
-    "y": 1400,
+    "x": 530,
+    "y": 1500,
     "wires": [["148a5ad98163f28e", "6e62d8a0ff4eec4e"]]
   },
   {
@@ -3285,9 +3363,9 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 980,
-    "y": 1840,
-    "wires": [["bcd06ccecec30bba"]]
+    "x": 1060,
+    "y": 1660,
+    "wires": [["bebf676faab14e47"]]
   },
   {
     "id": "bc4b93cb9b90153e",
@@ -3314,9 +3392,9 @@
     "officon": "",
     "offcolor": "",
     "animate": false,
-    "x": 610,
-    "y": 1780,
-    "wires": [["16c1cf228ff98c6f", "bcd06ccecec30bba"]]
+    "x": 830,
+    "y": 1820,
+    "wires": [["16c1cf228ff98c6f", "256edac9d512c862"]]
   },
   {
     "id": "16c1cf228ff98c6f",
@@ -3342,23 +3420,23 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 760,
-    "y": 1840,
-    "wires": [["d58834deced47463", "680e30ba7d938e41"]]
+    "x": 840,
+    "y": 1760,
+    "wires": [["d58834deced47463", "680e30ba7d938e41", "75cbf84d9d715e0a"]]
   },
   {
     "id": "bcd06ccecec30bba",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 25",
-    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel5_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse {\n    global.set(\"g_channel5\", msg.payload);\n    flow.set(\"channel5\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel5\");\nmsgtmp.channel_state = flow.get(\"channel5_state\");\nmsgtmp.channel_sat = global.get(\"g_channel5_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
+    "name": "get all context chan5",
+    "func": "var msgtmp = {};\n\nif(typeof msg.payload==\"boolean\"){\n    flow.set(\"channel5_state\", msg.payload);\n}\nelse if (msg.payload == -1) {\n\n}\nelse {\n    global.set(\"g_channel5\", msg.payload);\n    flow.set(\"channel5\", String(msg.payload));\n}\n\nmsgtmp.channel = flow.get(\"channel5\");\nmsgtmp.channel_state = flow.get(\"channel5_state\");\nmsgtmp.channel_inter = flow.get(\"f_channel5_inter\");\nmsgtmp.channel_sat = global.get(\"g_channel5_sat\");\nmsg.payload = msgtmp;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1180,
-    "y": 1780,
+    "x": 1480,
+    "y": 1700,
     "wires": [["819fe77c9813a4c5", "aa18ce3127014647"]]
   },
   {
@@ -3372,15 +3450,15 @@
     "createDir": true,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 1380,
-    "y": 1780,
+    "x": 1460,
+    "y": 1600,
     "wires": [[]]
   },
   {
     "id": "78e5e4c48e951072",
     "type": "file in",
     "z": "f8aa2faa21c8a9a9",
-    "name": "conf",
+    "name": "read channel5.txt",
     "filename": "/home/nobutech/mqtt-sub/conf/channel5.txt",
     "filenameType": "str",
     "format": "utf8",
@@ -3388,9 +3466,16 @@
     "sendError": false,
     "encoding": "none",
     "allProps": false,
-    "x": 330,
-    "y": 1640,
-    "wires": [["8910480ae83e4589", "ed5f3a5b70371059", "c2aaf9c0a3c54ca0"]]
+    "x": 310,
+    "y": 1700,
+    "wires": [
+      [
+        "8910480ae83e4589",
+        "ed5f3a5b70371059",
+        "c2aaf9c0a3c54ca0",
+        "259d0bb4f67faf1c"
+      ]
+    ]
   },
   {
     "id": "8910480ae83e4589",
@@ -3403,8 +3488,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 490,
-    "y": 1600,
+    "x": 530,
+    "y": 1660,
     "wires": [["d58834deced47463"]]
   },
   {
@@ -3418,8 +3503,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 490,
-    "y": 1680,
+    "x": 530,
+    "y": 1800,
     "wires": [["16c1cf228ff98c6f", "bc4b93cb9b90153e"]]
   },
   {
@@ -3441,7 +3526,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1760,
+    "x": 1960,
     "y": 1100,
     "wires": [["06c7cc11ec68ed89"]]
   },
@@ -3464,8 +3549,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 2000,
-    "y": 1240,
+    "x": 2360,
+    "y": 1220,
     "wires": [["06c7cc11ec68ed89"]]
   },
   {
@@ -3489,8 +3574,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 1870,
-    "y": 920,
+    "x": 1970,
+    "y": 1220,
     "wires": [["d71ad9bffdebba62"]]
   },
   {
@@ -3504,7 +3589,7 @@
     "createDir": true,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 2460,
+    "x": 2700,
     "y": 1180,
     "wires": [[]]
   },
@@ -3515,8 +3600,8 @@
     "name": "link out 1",
     "mode": "link",
     "links": ["429fab375915e513"],
-    "x": 2425,
-    "y": 1140,
+    "x": 2655,
+    "y": 1120,
     "wires": []
   },
   {
@@ -3536,7 +3621,7 @@
     "topic": "topic",
     "topicType": "msg",
     "x": 1060,
-    "y": 800,
+    "y": 540,
     "wires": [["8fe55aaa0a2b1277"]]
   },
   {
@@ -3555,8 +3640,8 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 1020,
-    "y": 1060,
+    "x": 1060,
+    "y": 840,
     "wires": [["a4abc5d389d647cf"]]
   },
   {
@@ -3575,8 +3660,8 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 980,
-    "y": 1320,
+    "x": 1060,
+    "y": 1140,
     "wires": [["902994bd07084455"]]
   },
   {
@@ -3595,8 +3680,8 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 960,
-    "y": 1620,
+    "x": 1060,
+    "y": 1440,
     "wires": [["36e9067638c02e75"]]
   },
   {
@@ -3615,8 +3700,8 @@
     "delay": 300,
     "topic": "topic",
     "topicType": "msg",
-    "x": 980,
-    "y": 1900,
+    "x": 1060,
+    "y": 1740,
     "wires": [["b1b3cfaf0acb61ff"]]
   },
   {
@@ -3633,8 +3718,8 @@
     "raw": false,
     "topic": "Nama channel yang aktif tidak dapat kosong.",
     "name": "",
-    "x": 2490,
-    "y": 1040,
+    "x": 2710,
+    "y": 1000,
     "wires": [[]]
   },
   {
@@ -3651,16 +3736,22 @@
         "vt": "num"
       },
       {
+        "t": "eq",
+        "v": "-2",
+        "vt": "str"
+      },
+      {
         "t": "nnull"
       }
     ],
     "checkall": "false",
     "repair": false,
-    "outputs": 2,
-    "x": 2310,
+    "outputs": 3,
+    "x": 2510,
     "y": 1100,
     "wires": [
       ["f85f0a7d536ae199"],
+      ["1b71c402633c70fc"],
       ["a9a1afb4e7511c0a", "a003f8a5e4a97846", "d71ad9bffdebba62"]
     ]
   },
@@ -3675,8 +3766,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1210,
-    "y": 1060,
+    "x": 1230,
+    "y": 840,
     "wires": [["675e04b46a2852d9"]]
   },
   {
@@ -3691,7 +3782,7 @@
     "finalize": "",
     "libs": [],
     "x": 1230,
-    "y": 800,
+    "y": 540,
     "wires": [["f937469ed016ccbe"]]
   },
   {
@@ -3705,8 +3796,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1150,
-    "y": 1320,
+    "x": 1230,
+    "y": 1140,
     "wires": [["b03bc9314643451e"]]
   },
   {
@@ -3720,8 +3811,8 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1130,
-    "y": 1620,
+    "x": 1230,
+    "y": 1440,
     "wires": [["f8b232585370eb1e"]]
   },
   {
@@ -3735,24 +3826,24 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 1150,
-    "y": 1900,
+    "x": 1230,
+    "y": 1740,
     "wires": [["bcd06ccecec30bba"]]
   },
   {
     "id": "e177d817f76a99d0",
     "type": "function",
     "z": "f8aa2faa21c8a9a9",
-    "name": "function 38",
+    "name": "parse and save flow satuan",
     "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel_sat;\n\nglobal.set(\"g_channel1_sat\", msg.payload);\n\n// expected output: true\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 490,
-    "y": 640,
-    "wires": [["572469609fff1fbd"]]
+    "x": 580,
+    "y": 540,
+    "wires": [["c24a9fefddb7544e"]]
   },
   {
     "id": "45e7f560ca9e1ca2",
@@ -3765,9 +3856,9 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 470,
-    "y": 940,
-    "wires": [["1811b3e81a1b26d0"]]
+    "x": 530,
+    "y": 840,
+    "wires": [["0ba53e9eb857ad88"]]
   },
   {
     "id": "f4170e1f99c19b3c",
@@ -3780,9 +3871,9 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 410,
-    "y": 1200,
-    "wires": [["1064a4006489356c"]]
+    "x": 530,
+    "y": 1140,
+    "wires": [["9dde28a70b9eaf70"]]
   },
   {
     "id": "d4ba7a142573cb5e",
@@ -3795,9 +3886,9 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 390,
-    "y": 1480,
-    "wires": [["e6b95e8fe1e2b059"]]
+    "x": 530,
+    "y": 1440,
+    "wires": [["6a9ad735df18e569"]]
   },
   {
     "id": "c2aaf9c0a3c54ca0",
@@ -3810,8 +3901,276 @@
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 410,
-    "y": 1780,
-    "wires": [["10925289208b723c"]]
+    "x": 530,
+    "y": 1740,
+    "wires": [["680e30ba7d938e41"]]
+  },
+  {
+    "id": "21c2082a7cc8dbef",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "parse and save flow inter",
+    "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel_inter;\n\nflow.set(\"f_channel1_inter\", msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 570,
+    "y": 400,
+    "wires": [["a3d54c631226cd9f"]]
+  },
+  {
+    "id": "a3d54c631226cd9f",
+    "type": "ui_text_input",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "",
+    "label": "",
+    "tooltip": "",
+    "group": "e460d696bc22f4e3",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "mode": "number",
+    "delay": 300,
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 1070,
+    "y": 400,
+    "wires": [["2f4ec5eef083ad75"]]
+  },
+  {
+    "id": "2f4ec5eef083ad75",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "function 60",
+    "func": "flow.set(\"f_channel1_inter\", msg.payload);\nmsg.payload = -1;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1230,
+    "y": 400,
+    "wires": [["f937469ed016ccbe"]]
+  },
+  {
+    "id": "1b71c402633c70fc",
+    "type": "ui_toast",
+    "z": "f8aa2faa21c8a9a9",
+    "position": "dialog",
+    "displayTime": "3",
+    "highlight": "green",
+    "sendall": true,
+    "outputs": 1,
+    "ok": "Ok",
+    "cancel": "",
+    "raw": false,
+    "topic": "Interval channel yang aktif tidak dapat kosong atau 0.",
+    "name": "",
+    "x": 2710,
+    "y": 1060,
+    "wires": [[]]
+  },
+  {
+    "id": "1f6d2f1455ba2fa9",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "parse and save flow inter",
+    "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel_inter;\n\nflow.set(\"f_channel2_inter\", msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 570,
+    "y": 700,
+    "wires": [["33cea2892dea7e75"]]
+  },
+  {
+    "id": "33cea2892dea7e75",
+    "type": "ui_text_input",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "",
+    "label": "",
+    "tooltip": "",
+    "group": "e460d696bc22f4e3",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "mode": "number",
+    "delay": 300,
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 1070,
+    "y": 700,
+    "wires": [["971862508dc65b2a"]]
+  },
+  {
+    "id": "971862508dc65b2a",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "function 61",
+    "func": "flow.set(\"f_channel2_inter\", msg.payload);\nmsg.payload = -1;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1230,
+    "y": 700,
+    "wires": [["675e04b46a2852d9"]]
+  },
+  {
+    "id": "c0e8c0157dcadcee",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "parse and save flow inter",
+    "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel_inter;\n\nflow.set(\"f_channel3_inter\", msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 570,
+    "y": 1000,
+    "wires": [["00eb24da4b25721e"]]
+  },
+  {
+    "id": "00eb24da4b25721e",
+    "type": "ui_text_input",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "",
+    "label": "",
+    "tooltip": "",
+    "group": "e460d696bc22f4e3",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "mode": "number",
+    "delay": 300,
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 1070,
+    "y": 1000,
+    "wires": [["3458c2657ba39f01"]]
+  },
+  {
+    "id": "3458c2657ba39f01",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "function 62",
+    "func": "flow.set(\"f_channel3_inter\", msg.payload);\nmsg.payload = -1;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1230,
+    "y": 1000,
+    "wires": [["b03bc9314643451e"]]
+  },
+  {
+    "id": "44350b0b52d976ef",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "parse and save flow inter",
+    "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel_inter;\n\nflow.set(\"f_channel4_inter\", msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 570,
+    "y": 1300,
+    "wires": [["d5cbab08fbd10568"]]
+  },
+  {
+    "id": "d5cbab08fbd10568",
+    "type": "ui_text_input",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "",
+    "label": "",
+    "tooltip": "",
+    "group": "e460d696bc22f4e3",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "mode": "number",
+    "delay": 300,
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 1070,
+    "y": 1300,
+    "wires": [["97339b450ac626b7"]]
+  },
+  {
+    "id": "97339b450ac626b7",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "function 63",
+    "func": "flow.set(\"f_channel4_inter\", msg.payload);\nmsg.payload = -1;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1230,
+    "y": 1300,
+    "wires": [["f8b232585370eb1e"]]
+  },
+  {
+    "id": "259d0bb4f67faf1c",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "parse and save flow inter",
+    "func": "const json = msg.payload;\nconst obj = JSON.parse(json);\n\nmsg.payload = obj.channel_inter;\n\nflow.set(\"f_channel5_inter\", msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 570,
+    "y": 1600,
+    "wires": [["75cbf84d9d715e0a"]]
+  },
+  {
+    "id": "75cbf84d9d715e0a",
+    "type": "ui_text_input",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "",
+    "label": "",
+    "tooltip": "",
+    "group": "e460d696bc22f4e3",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "mode": "number",
+    "delay": 300,
+    "topic": "topic",
+    "topicType": "msg",
+    "x": 1070,
+    "y": 1600,
+    "wires": [["7cf0a483e6595ecd"]]
+  },
+  {
+    "id": "7cf0a483e6595ecd",
+    "type": "function",
+    "z": "f8aa2faa21c8a9a9",
+    "name": "function 64",
+    "func": "flow.set(\"f_channel5_inter\", msg.payload);\nmsg.payload = -1;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1230,
+    "y": 1600,
+    "wires": [["bcd06ccecec30bba"]]
   }
 ]
